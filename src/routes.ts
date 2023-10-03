@@ -22,7 +22,7 @@ export const ROUTES: Route[] = [
     url: "/api/products",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/products": "/products",
@@ -33,7 +33,7 @@ export const ROUTES: Route[] = [
     url: "/api/products/:productId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/products": "/products",
@@ -44,7 +44,7 @@ export const ROUTES: Route[] = [
     url: "/api/orders/:userId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_OMS || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/orders": "/orders",
@@ -60,7 +60,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory": "/shop_inventory",
@@ -71,7 +71,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory/:productId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory": "/shop_inventory",
@@ -82,7 +82,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory/updateInventory",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory/updateInventory": "/shop_inventory/updateInventory",
@@ -93,7 +93,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner": "/banner",
@@ -104,7 +104,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner/:bannerId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner": "/banner",
@@ -115,7 +115,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner/product/:productId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner/product": "/banner/product",

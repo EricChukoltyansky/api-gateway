@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import { setupLogger } from "./logging";
 import { setupProxy } from "./proxy";
 import { setupRateLimit } from "./rateLimit";
