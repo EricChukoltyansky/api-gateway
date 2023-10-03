@@ -38,5 +38,30 @@ app.post("/api/shop_inventory/updateInventory", (req, res) => {
   res.send("update inventory in proxy server");
 });
 
+// Banner Microservice
+app.get("/api/banner", (req, res) => {
+  res.send("banner list in proxy server");
+});
+
+app.get("/api/banner/:bannerId", (req, res) => {
+  res.send(`banner details for ${req.params.bannerId} in proxy server`);
+});
+
+app.get("/api/banner/product/:productId", (req, res) => {
+  res.send(`banner for product ${req.params.productId} in proxy server`);
+});
+
+app.post("/api/banner", (req, res) => {
+  res.send("create banner in proxy server");
+});
+
+app.put("/api/banner/:bannerId", (req, res) => {
+  res.send(`update banner ${req.params.bannerId} in proxy server`);
+});
+
+app.delete("/api/banner/:bannerId", (req, res) => {
+  res.send(`delete banner ${req.params.bannerId} in proxy server`);
+});
+
 app.listen(8080, () => console.log("Server running"));
 
