@@ -28,6 +28,11 @@ export const ROUTES: Route[] = [
         "^/api/products": "/products",
       },
     },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 3,
+      message: "Too many product requests",
+    },
   },
   {
     url: "/api/products/:productId",
@@ -38,6 +43,11 @@ export const ROUTES: Route[] = [
       pathRewrite: {
         "^/api/products": "/products",
       },
+    },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100,
+      message: "Too many product requests",
     },
   },
   {
@@ -51,9 +61,9 @@ export const ROUTES: Route[] = [
       },
     },
     rateLimit: {
-      windowMs: 15 * 60 * 1000,
-      max: 5,
-      message: "Too many requests",
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 10,
+      message: "Too many order or inventory update requests",
     },
   },
   {
@@ -66,6 +76,11 @@ export const ROUTES: Route[] = [
         "^/api/shop_inventory": "/shop_inventory",
       },
     },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100,
+      message: "Too many product requests",
+    },
   },
   {
     url: "/api/shop_inventory/:productId",
@@ -77,6 +92,11 @@ export const ROUTES: Route[] = [
         "^/api/shop_inventory": "/shop_inventory",
       },
     },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100,
+      message: "Too many product requests",
+    },
   },
   {
     url: "/api/shop_inventory/updateInventory",
@@ -85,10 +105,16 @@ export const ROUTES: Route[] = [
       target: "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/shop_inventory/updateInventory": "/shop_inventory/updateInventory",
+        "^/api/shop_inventory/updateInventory":
+          "/shop_inventory/updateInventory",
       },
     },
-  }, 
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 10,
+      message: "Too many order or inventory update requests",
+    },
+  },
   {
     url: "/api/banner",
     auth: false,
@@ -98,6 +124,11 @@ export const ROUTES: Route[] = [
       pathRewrite: {
         "^/api/banner": "/banner",
       },
+    },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 50,
+      message: "Too many banner requests",
     },
   },
   {
@@ -110,7 +141,12 @@ export const ROUTES: Route[] = [
         "^/api/banner": "/banner",
       },
     },
-  }, 
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 50,
+      message: "Too many banner requests",
+    },
+  },
   {
     url: "/api/banner/product/:productId",
     auth: false,
@@ -121,6 +157,10 @@ export const ROUTES: Route[] = [
         "^/api/banner/product": "/banner/product",
       },
     },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 50,
+      message: "Too many banner requests",
+    },
   },
-  
 ];

@@ -13,6 +13,10 @@ setupProxy(app, ROUTES);
 
 setupRateLimit(app, ROUTES);
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+    });
+
 
 
 
