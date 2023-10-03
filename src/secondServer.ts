@@ -2,18 +2,18 @@ import express from "express";
 
 const app = express();
 
-// Shop microservice
+// // Shop microservice
 
-app.get("/products", (req, res) => {
-  res.send("products in proxy server");
-});
-app.get("/products/:productId", (req, res) => {
-  console.log(req.headers);
-  res.send(`product ${req.params.productId} in proxy server`);
-});
-app.get("/orders/:userId", (req, res) => {  
-  res.send(`orders of user ${req.params.userId} in proxy server`);
-})
+// app.get("/products", (req, res) => {
+//   res.send("products in proxy server");
+// });
+// app.get("/products/:productId", (req, res) => {
+//   console.log(req.headers);
+//   res.send(`product ${req.params.productId} in proxy server`);
+// });
+// app.get("/orders/:userId", (req, res) => {  
+//   res.send(`orders of user ${req.params.userId} in proxy server`);
+// })
 
 // OMS microservice
 

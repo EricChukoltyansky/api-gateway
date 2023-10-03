@@ -18,38 +18,38 @@ export type Route = {
 };
 
 export const ROUTES: Route[] = [
-  {
-    url: "/api/products",
-    auth: false,
-    proxy: {
-      target: process.env.TARGET_ERP || "http://localhost:8080",
-      changeOrigin: true,
-      pathRewrite: {
-        "^/api/products": "/products",
-      },
-    },
-    rateLimit: {
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 3,
-      message: "Too many product requests",
-    },
-  },
-  {
-    url: "/api/products/:productId",
-    auth: false,
-    proxy: {
-      target: process.env.TARGET_ERP || "http://localhost:8080",
-      changeOrigin: true,
-      pathRewrite: {
-        "^/api/products": "/products",
-      },
-    },
-    rateLimit: {
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100,
-      message: "Too many product requests",
-    },
-  },
+//   {
+//     url: "/api/products",
+//     auth: false,
+//     proxy: {
+//       target: process.env.TARGET_ERP || "http://localhost:8080",
+//       changeOrigin: true,
+//       pathRewrite: {
+//         "^/api/products": "/products",
+//       },
+//     },
+//     rateLimit: {
+//       windowMs: 15 * 60 * 1000, // 15 minutes
+//       max: 3,
+//       message: "Too many product requests",
+//     },
+//   },
+//   {
+//     url: "/api/products/:productId",
+//     auth: false,
+//     proxy: {
+//       target: process.env.TARGET_ERP || "http://localhost:8080",
+//       changeOrigin: true,
+//       pathRewrite: {
+//         "^/api/products": "/products",
+//       },
+//     },
+//     rateLimit: {
+//       windowMs: 15 * 60 * 1000, // 15 minutes
+//       max: 100,
+//       message: "Too many product requests",
+//     },
+//   },
   {
     url: "/api/orders/:userId",
     auth: false,
