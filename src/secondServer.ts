@@ -17,10 +17,10 @@ const app = express();
 
 // OMS microservice
 
-app.get("/orders", (req, res) => {
+app.get("api/orders", (req, res) => {
   res.send("orders in proxy server");
 });
-app.get("/orders/:userId", (req, res) => {
+app.get("api/orders/:userId", (req, res) => {
   res.send(`orders of user ${req.params.userId} in proxy server`);
 });
 

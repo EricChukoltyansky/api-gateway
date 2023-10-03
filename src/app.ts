@@ -1,13 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config();
+import cors from "cors"
+
 import { setupLogger } from "./logging";
 import { setupProxy } from "./proxy";
 import { setupRateLimit } from "./rateLimit";
 import { ROUTES } from "./routes";
+
+dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 setupLogger(app);
 

@@ -25,7 +25,7 @@ export const ROUTES: Route[] = [
 //       target: process.env.TARGET_ERP || "http://localhost:8080",
 //       changeOrigin: true,
 //       pathRewrite: {
-//         "^/api/products": "/products",
+//         "^/api/products": "api/products",
 //       },
 //     },
 //     rateLimit: {
@@ -41,7 +41,7 @@ export const ROUTES: Route[] = [
 //       target: process.env.TARGET_ERP || "http://localhost:8080",
 //       changeOrigin: true,
 //       pathRewrite: {
-//         "^/api/products": "/products",
+//         "^/api/products": "api/products",
 //       },
 //     },
 //     rateLimit: {
@@ -57,7 +57,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_OMS || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/orders": "/orders",
+        "^/api/orders": "api/orders",
       },
     },
     rateLimit: {
@@ -73,7 +73,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/shop_inventory": "/shop_inventory",
+        "^/api/shop_inventory": "api/shop_inventory",
       },
     },
     rateLimit: {
@@ -89,7 +89,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_ERP || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/shop_inventory": "/shop_inventory",
+        "^/api/shop_inventory": "api/shop_inventory",
       },
     },
     rateLimit: {
@@ -106,7 +106,7 @@ export const ROUTES: Route[] = [
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory/updateInventory":
-          "/shop_inventory/updateInventory",
+          "api/shop_inventory/updateInventory",
       },
     },
     rateLimit: {
@@ -122,7 +122,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/banner": "/banner",
+        "^/api/banner": "api/banner",
       },
     },
     rateLimit: {
@@ -138,7 +138,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/banner": "/banner",
+        "^/api/banner": "api/banner",
       },
     },
     rateLimit: {
@@ -154,7 +154,7 @@ export const ROUTES: Route[] = [
       target: process.env.TARGET_BANNER || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/banner/product": "/banner/product",
+        "^/api/banner/product": "api/banner/product",
       },
     },
     rateLimit: {
