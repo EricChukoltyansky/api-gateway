@@ -1,4 +1,12 @@
 import rateLimit from "express-rate-limit";
+require('dotenv').config()
+console.log(process.env)
+console.log(process.env)
+const ENV = process.env.ENVIRONMENT || "DEV"
+const {DEV_URL}  = process.env|| "http://localhost:8080"
+const OMS_URL=ENV === "DEV" ? DEV_URL :process.env.OMS_URL
+const ERP_URL=ENV === "DEV" ?DEV_URL:process.env.ERP_URL
+const BANNER_URL=ENV === "DEV" ?DEV_URL:process.env.BANNER_URL
 
 export type Route = {
   url: string;
@@ -54,7 +62,7 @@ export const ROUTES: Route[] = [
     url: "/api/orders/:userId",
     auth: false,
     proxy: {
-      target: process.env.TARGET_OMS || "http://localhost:8080",
+      target: "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/orders": "api/orders",
@@ -70,7 +78,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory",
     auth: false,
     proxy: {
-      target: process.env.TARGET_ERP || "http://localhost:8080",
+      target: ERP_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory": "api/shop_inventory",
@@ -86,7 +94,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory/:productId",
     auth: false,
     proxy: {
-      target: process.env.TARGET_ERP || "http://localhost:8080",
+      target: ERP_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory": "api/shop_inventory",
@@ -102,7 +110,7 @@ export const ROUTES: Route[] = [
     url: "/api/shop_inventory/updateInventory",
     auth: false,
     proxy: {
-      target: process.env.TARGET_ERP || "http://localhost:8080",
+      target: ERP_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory/updateInventory":
@@ -119,7 +127,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner",
     auth: false,
     proxy: {
-      target: process.env.TARGET_BANNER || "http://localhost:8080",
+      target: BANNER_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner": "api/banner",
@@ -135,7 +143,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner/:bannerId",
     auth: false,
     proxy: {
-      target: process.env.TARGET_BANNER || "http://localhost:8080",
+      target: BANNER_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner": "api/banner",
@@ -151,7 +159,7 @@ export const ROUTES: Route[] = [
     url: "/api/banner/product/:productId",
     auth: false,
     proxy: {
-      target: process.env.TARGET_BANNER || "http://localhost:8080",
+      target: BANNER_URL!,
       changeOrigin: true,
       pathRewrite: {
         "^/api/banner/product": "api/banner/product",
