@@ -58,6 +58,22 @@ export const ROUTES: Route[] = [
 //       message: "Too many product requests",
 //     },
 //   },
+{
+    url: "/api/orders",
+    auth: false,
+    proxy: {
+      target: OMS_URL || "http://localhost:8080",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/api/orders": "api/orders",
+      },
+    },
+    rateLimit: {
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 10,
+      message: "Too many order or inventory update requests",
+    },
+  },
   {
     url: "/api/orders/:userId",
     auth: false,
