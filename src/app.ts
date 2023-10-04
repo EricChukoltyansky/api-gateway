@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import cors from "cors"
+import cors from "cors";
 
 import { setupLogger } from "./logging";
 import { setupProxy } from "./proxy";
@@ -9,9 +9,14 @@ import { ROUTES } from "./routes";
 
 dotenv.config();
 const app = express();
-
 app.use(express.json());
-app.use(cors())
+
+app.use(cors({
+    origin: [
+        process.env.SHOP_URL || process.env.DEV_URL!,
+        process.env.OMS_URL || process.env.DEV_URL!,
+    ]
+}));
 
 setupLogger(app);
 
@@ -21,7 +26,7 @@ setupRateLimit(app, ROUTES);
 
 app.get("/", (req, res) => {
     res.send("Hello World");
-    });
+});
 
 
 

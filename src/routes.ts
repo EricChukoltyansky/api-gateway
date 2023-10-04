@@ -130,7 +130,7 @@ export const ROUTES: Route[] = [
       changeOrigin: true,
       pathRewrite: {
         "^/api/shop_inventory/updateInventory":
-          "api/shop_inventory/updateInventory",
+          "/api/shop_inventory/updateInventory",
       },
     },
     rateLimit: {
