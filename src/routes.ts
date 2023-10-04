@@ -1,9 +1,9 @@
 import rateLimit from "express-rate-limit";
-require('dotenv').config()
-console.log(process.env)
-console.log(process.env)
-const ENV = process.env.ENVIRONMENT || "DEV"
-const {DEV_URL}  = process.env|| "http://localhost:8080"
+require('dotenv').config();
+// console.log(process.env);
+// console.log(process.env);
+const ENV = process.env.ENVIRONMENT || "DEV";
+const {DEV_URL}  = process.env;
 const OMS_URL=ENV === "DEV" ? DEV_URL :process.env.OMS_URL
 const ERP_URL=ENV === "DEV" ?DEV_URL:process.env.ERP_URL
 const BANNER_URL=ENV === "DEV" ?DEV_URL:process.env.BANNER_URL
@@ -62,7 +62,7 @@ export const ROUTES: Route[] = [
     url: "/api/orders/:userId",
     auth: false,
     proxy: {
-      target: "http://localhost:8080",
+      target: OMS_URL || "http://localhost:8080",
       changeOrigin: true,
       pathRewrite: {
         "^/api/orders": "api/orders",
